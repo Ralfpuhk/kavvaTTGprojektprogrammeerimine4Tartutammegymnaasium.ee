@@ -3,3 +3,6 @@ Liikmed: Martin Sibul, ralf Puhk
 
 Projekt/Probleem:
 Päevad on liiga kaootilised ja vajavad struktuuri. -> Programm, kuhu saab oma nädalakava kirja panna ning saadab vastavalt sõnumeid meeldetuletuseks.
+
+Rollid:
+Selguvad töö käigus (Martin võibolla teeb esitluse)
