@@ -16,7 +16,7 @@ while i == 0:
     time.sleep(1)
     if MINUTE == 0:
         discord = Discord(url="https://discord.com/api/webhooks/1285532569252663329/Exwjdv428I8ev5W3gXDqowPnWX7c2cybHOpn0sGB4RowZha_XyIF-FzqvbkQtpaQ4XLx")
-        discord.post(content="balls")
+        discord.post(content="Ärka yles")
     
 
     
