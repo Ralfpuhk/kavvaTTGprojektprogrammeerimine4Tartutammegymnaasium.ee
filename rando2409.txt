@@ -1,0 +1,34 @@
+from tkcalendar import Calendar
+import customtkinter as ctk
+from tkinter import ttk
+
+ctk.set_appearance_mode("Dark")
+ctk.set_default_color_theme("green")
+def mainF():
+    global cal
+    def getDate():
+        date=cal.get_date()
+        print(date)
+    cal.pack(pady=20, padx=20)
+    butt=customtkinter.CTkButton(root,text="Date Getter", bg="cyan",command=getDate).pack()
+root = ctk.CTk()
+root.geometry("550x400")
+
+frame = ctk.CTkFrame(root)
+frame.pack(fill="both", padx=10, pady=10, expand=True)
+
+style = ttk.Style(root)
+style.theme_use("default")
+
+#root.grid_columnconfigure(0, weight=1)
+
+cal = Calendar(frame, selectmode='day', locale='en_US', disabledforeground='red',
+               cursor="hand2", background=ctk.ThemeManager.theme["CTkFrame"]["fg_color"][1],
+               selectbackground=ctk.ThemeManager.theme["CTkButton"]["fg_color"][1])
+cal.pack(fill="both", expand=True, padx=10, pady=10)
+
+cal=Calendar(root,selectmode="day",date_pattern="dd-mm-y")
+butt=customtkinter.CTkButton(root,text="Pick Date",command=mainF).pack()
+#button = ctk.CTkButton(root, text="my button")
+#button.grid(row=0, column=0, padx=20, pady=20)
+root.mainloop()
