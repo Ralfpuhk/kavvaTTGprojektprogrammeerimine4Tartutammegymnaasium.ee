@@ -10,6 +10,7 @@ Rollid:
 Selguvad töö käigus (Martin teeb esitluse ja esitleb seda klassile võibolla)
 
 Trello link: https://trello.com/invite/b/66e00a063001d3e1a232c855/ATTI25a1ab93e3f7186cae275477210ec4de3531DF86/kavvattgprojektprogrammeerimine4
+
 Paberprototüüp: https://magma.com/d/g1fcoIu3nH
 
 Kasutajaliides prototüüp: https://magma.com/d/wln7slbyec
