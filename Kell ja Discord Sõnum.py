@@ -3,7 +3,7 @@ import datetime
 from discordwebhook import Discord
 
 # discord boti webhook: "https://discord.com/api/webhooks/1285532569252663329/Exwjdv428I8ev5W3gXDqowPnWX7c2cybHOpn0sGB4RowZha_XyIF-FzqvbkQtpaQ4XLx"
-
+# discord bot appi token: "MTI5MDYwMDk0NTUyODYwMjY4NQ.GXN744.rSDaZvKUJdHKbwsikio67O8QFo4alMfqdABPYg"
 
 discordWebhook = input("Enter your discord bots webhook: ")
 discord = Discord(url=discordWebhook)
