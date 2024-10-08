@@ -11,35 +11,32 @@ def lisa(row, input_kuupaev, input_kell, input_sonum, user):
         sheet.Range[cell].Text = assignment[column.index(num)]
         
     i = row + 1
+    path = ("info/"+ user_ID +".xlsx")
+    # Save to a .xlsx file
+    wb.SaveToFile(path, FileFormat.Version2016)
     
     return i
 
-
+i=1
 # Create a Workbook object
 wb = Workbook()
 # Remove default worksheets
 wb.Worksheets.Clear()
 # Add a worksheet and name it "Employee"
 sheet = wb.Worksheets.Add("kalender")
+user_ID = input("Input your custom ID: ")
 
-#user_ID = input("Input your custom ID: ")
-#sonum = input("Input message: ")
-#kuupaev = input("Input date (d/dd.m/mm.yyyy): ")#kontrolli hiljem kuida need vormistatud
-#kell = input("Input time(xx.yy): ")
+while True:
+    sonum = input("Input message: ")
+    kuupaev = input("Input date (d/dd.m/mm.yyyy): ")#kontrolli hiljem kuida need vormistatud
+    kell = input("Input time(x/xx:y/yy): ")
+    i = lisa(i, kuupaev, kell, sonum, user_ID)
 
-i = 1
 
-user_ID = "Winstonoverwacth"
-kuupaev = "1.10.2024" 
-sonum = "noor piff, kooli!" 
-kell = "12.55" 
 
-i = lisa(i, kuupaev, kell, sonum, user_ID)
 #i = lisa(i, kuupaev2, kell2, sonum2, user_ID)
 
-path = ("info/"+ user_ID +".xlsx")
-# Save to a .xlsx file
-wb.SaveToFile(path, FileFormat.Version2016)
+
 
 
 
