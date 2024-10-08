@@ -1,5 +1,6 @@
 from spire.xls import *
 from spire.xls.common import *
+from spire.xls import Workbook
 
 import os
 import pandas as pd #pip install openpyxl
@@ -26,23 +27,32 @@ def lisa(row, input_kuupaev, input_kell, input_sonum, user):
 
 dir_path = "info/"
 file_list = []
+wb = Workbook()
+
+directory_name = "info"
+
+# Create the directory
+try:
+    os.mkdir(directory_name)
+    print(f"Directory '{directory_name}' created successfully.")
+except FileExistsError:
+    print(f"Directory '{directory_name}' already exists.")
+except PermissionError:
+    print(f"Permission denied: Unable to create '{directory_name}'.")
+except Exception as e:
+    print(f"An error occurred: {e}")
 
 for path in os.listdir(dir_path):
     if os.path.isfile(os.path.join(dir_path, path)):
             
         file_list.append(os.path.basename(path).split('/')[-1])
 
-# Create a Workbook object
-wb = Workbook()
-# Remove default worksheets
-wb.Worksheets.Clear()
-# Add a worksheet and name it "Employee"
-sheet = wb.Worksheets.Add("kalender")
-
-
-
 user_ID = input("Input your custom ID: ")
 if (user_ID) + ".xlsx" not in file_list:
+    # Remove default worksheets
+    wb.Worksheets.Clear()
+    # Add a worksheet and name it "Employee"
+    sheet = wb.Worksheets.Add()
     i=1
     lisa(i,".",".",".", user_ID)
 
@@ -57,6 +67,10 @@ while True:
     if (user_ID) + ".xlsx" in file_list:
         df = pd.read_excel(os.path.join(dir_path, user_ID) + ".xlsx", header=None)  # Read without headers to get raw data
         
+        wb = Workbook()
+        wb.LoadFromFile("info/"+ user_ID +".xlsx")
+        sheet = wb.Worksheets["kalender"]
+        
         values = df.values.flatten()
         num_cols = 3
         matrix = values.reshape(-1, num_cols).tolist()
@@ -65,9 +79,11 @@ while True:
                 i = matrix.index(info) + 1
                 lisa(i, kuupaev, kell, sonum, user_ID)
                 lisa((i+1),".",".",".", user_ID)
+                print(matrix)
 
 
 #i = lisa(i, kuupaev2, kell2, sonum2, user_ID)
+
 
 
 
