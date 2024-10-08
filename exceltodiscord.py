@@ -10,8 +10,8 @@ from discordwebhook import Discord      #!importante! mdea kas ise kirjutatud .x
 def digdin(message, nimi):
     discordWebhook = "https://discord.com/api/webhooks/1285532569252663329/Exwjdv428I8ev5W3gXDqowPnWX7c2cybHOpn0sGB4RowZha_XyIF-FzqvbkQtpaQ4XLx"
     discord = Discord(url=discordWebhook)#
-    niminew = nimi.rstrip(".xlsx")
-    discord.post(content = (str(niminew) + " has set the following notification to go off now: \n\n" + str(message)))
+
+    discord.post(content = (str(nimi[:len(nimi)-5]) + " has set the following notification to go off now: \n\n" + str(message)))
 
 dir_path = "info/"
 
@@ -22,8 +22,8 @@ while True:
     
     
     
-    time.sleep(1)
-    print("cycle done")
+    
+    
     
     for path in os.listdir(dir_path):
         if os.path.isfile(os.path.join(dir_path, path)):
@@ -44,7 +44,7 @@ while True:
         #print(matrix)
         for info in matrix:
             
-            lll = 1
+            #lll = 1
         
             current_time = datetime.datetime.now()		#current everything (year-month-day-hour-minute)
             month = datetime.date.today().month		# current month
@@ -53,15 +53,15 @@ while True:
             minute = datetime.datetime.now().minute #  current minute
             year = datetime.datetime.now().year
         
-            date = info[0]
-            if date == ((str(day) + "." + str(month) + "." + str(year))):
-                time_var = info[1]
-                if time_var == (str(hour) + ":" + str(minute)):
-                    if lll == 1:
-                        digdin(info[2], filename)
-                        print(info[2])
-                        lll =+ 1
-        
+
+            if info[0] == ((str(day) + "." + str(month) + "." + str(year))):
+                if info[1] == (str(hour) + ":" + str(minute)):
+                    #if lll == 1:
+                    digdin(info[2], file)
+                    print(info[2])
+                        #lll =+ 1
+    time.sleep(60)
+    print("cycle done")
     #print("xxxxxxxxxxxxxxxxxxxxxxx")
     #print(" ")
     #print(file)
