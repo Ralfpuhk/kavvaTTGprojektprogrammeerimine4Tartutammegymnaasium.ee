@@ -58,6 +58,7 @@ def check():
             hour = datetime.datetime.now().hour   # current hour
             minute = datetime.datetime.now().minute #  current minute
             year = datetime.datetime.now().year
+            second = datetime.datetime.now().second
         
 
             if info[0] == ((str(day) + "." + str(month) + "." + str(year))):
@@ -66,7 +67,7 @@ def check():
                     digdin(info[2], file)
                     print(info[2])
                         #lll =+ 1
-    print("cycle done")
+    print("cycle done. Current second count is : " + str(second))
     root.after(60000, check)
 
 def lisa(row, input_kuupaev, input_kell, input_sonum, user, sheet, wb):
