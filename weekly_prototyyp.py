@@ -5,8 +5,8 @@
 # Salvestamine appendib Discord ID, kuupäeva, kellaaja ning meelespea faili, milleks vaikimisi on fail.txt ning kohandab andmed ja salvestab .xlsx faili.
 # NB! Programm peab lahti olema, et see sonumi saadaks Discordi. (discordi server, millesse sonum saadetakse: https://discord.gg/qr4RssDH9J)
 # Programm saadab teate minuti jooksul, kuna oleneb programmi avamise ajast -> ei pruugi olla iga minuti alguses.
-# Kuidas saada oma discord ID:
-# 
+# Kuidas saada oma discord ID: 
+# Vajuta discordis nupule "User Settings" -> Vajuta "Advanced" -> Käivita "Developer Mode" -> Mine seadetest välja -> All vasakul vajuta oma discordi profiili peale -> Vajuta "Copy User ID"
 # Kasutajaliidese esteetikat peab veel arendama, aga programm teeb praegu oma töö ära.
 
 from tkcalendar import Calendar
