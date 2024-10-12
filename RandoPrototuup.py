@@ -2,8 +2,8 @@
 # Meelespea loomiseks pead vajutama kuupäeva peale ning sisestama kellaaja.
 # Kellaaeg tuleb sisestada formaadis HH:MM nt 12:29 .
 # Kui kuupäev ja kellaaeg on valitud, vajuta "Loo meelespea", kirjuta ning vajuta "Salvesta".
-# Salvestamine appendib Discord ID, kuupäeva, kellaaja ning meelespea faili, milleks vaikimisi
-# on fail.txt.
+# Salvestamine appendib Discord ID, kuupäeva, kellaaja ning meelespea faili, milleks vaikimisi on fail.txt.
+# Kasutajaliidese esteetikat peab veel arendama, aga programm teeb praegu oma töö ära.
 
 from tkcalendar import Calendar
 import customtkinter as ctk
