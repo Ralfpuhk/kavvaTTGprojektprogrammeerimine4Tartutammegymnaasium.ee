@@ -2,7 +2,7 @@
 # Meelespea loomiseks pead vajutama kuupäeva peale ning sisestama kellaaja.
 # Kellaaeg tuleb sisestada formaadis HH:MM nt 12:29 voi 01:32
 # Kui kuupäev ja kellaaeg on valitud, vajuta "Loo meelespea", siis kirjuta selle kohale oma sonum ning vajuta "Salvesta".
-# Salvestamine appendib Discord ID, kuupäeva, kellaaja ning meelespea ning kohandab andmed ja salvestab .xlsx faili.
+# Salvestamine appendib Discord ID, kuupäeva, kellaaja ning meelespea faili, milleks vaikimisi on fail.txt ning kohandab andmed ja salvestab .xlsx faili.
 # NB! Programm peab lahti olema, et see sonumi saadaks Discordi. (discordi server, millesse sonum saadetakse: https://discord.gg/qr4RssDH9J)
 # Programm saadab teate minuti jooksul, kuna oleneb programmi avamise ajast -> ei pruugi olla iga minuti alguses.
 # Kuidas saada oma discord ID: 
@@ -67,6 +67,7 @@ def check():
                     digdin(info[2], file)
                     print(info[2])
                         #lll =+ 1
+    second = datetime.datetime.now().second
     print("cycle done. Current second count is : " + str(second))
     root.after(60000, check)
 
@@ -108,7 +109,7 @@ def digdin(message, nimi):
     discordWebhook = "https://discord.com/api/webhooks/1285532569252663329/Exwjdv428I8ev5W3gXDqowPnWX7c2cybHOpn0sGB4RowZha_XyIF-FzqvbkQtpaQ4XLx"
     discord = Discord(url=discordWebhook)#
 
-    discord.post(content = ("<@"+(str(nimi[:len(nimi)-5]))+">" + " has set the following notification to go off now: \n" + str(message)))
+    discord.post(content = ("<@"+(str(nimi[:len(nimi)-5]))+">\n" + str(message)))
 
 
 try:
@@ -121,39 +122,39 @@ except PermissionError:
 except Exception as e:
     print(f"An error occurred: {e}")
 
-
+# Setup appearance
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
 
-
+# Window setup
 root = ctk.CTk()
-root.title("Weekly")  
-root.geometry("900x700")  
+root.title("Weekly")  # Changed title to "Weekly"
+root.geometry("900x700")  # Adjusted window size
 
-
+# Main frame for layout
 main_frame = ctk.CTkFrame(root)
 main_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
-
+# Left frame for Discord name entry and mode switch
 left_frame = ctk.CTkFrame(main_frame)
 left_frame.pack(side="left", fill="y", padx=(0, 10))
 
-
+# Discord name label and entry
 discord_label = ctk.CTkLabel(left_frame, text="Discord ID:")
 discord_label.pack(padx=10, pady=(10, 0))
 
-discord_entry = ctk.CTkEntry(left_frame, width=100)
+discord_entry = ctk.CTkEntry(left_frame, width=100)  # Increased width significantly
 discord_entry.pack(padx=10, pady=(0, 10), expand=True)
 
-
+# Mode switch
 mode_switch = ctk.CTkSwitch(left_frame, text="Light Mode", command=lambda: ctk.set_appearance_mode("Light" if ctk.get_appearance_mode() == "Dark" else "Dark"))
 mode_switch.pack(pady=(10, 10))
 
-
+# Right frame for calendar and other components
 right_frame = ctk.CTkFrame(main_frame)
 right_frame.pack(side="right", fill="both", expand=True)
 
-
+# Calendar setup
 today = datetime.date.today()
 mindate = datetime.date(year=2000, month=1, day=1)
 maxdate = today + datetime.timedelta(days=365)
@@ -170,27 +171,27 @@ cal = Calendar(right_frame,
                 year=int(time.strftime('%Y')),
                 month=int(time.strftime('%m')),
                 day=int(time.strftime('%d')),
-                width=30, height= 30)  
-cal.pack(expand=True, fill="both", padx= 50)  
+                width=30, height= 30)  # Set a specific width
+cal.pack(expand=True, fill="both", padx= 50)  # Added padding
 
-
+# Time entry setup
 time_frame = ctk.CTkFrame(right_frame)
-time_frame.pack(pady=(10, 0))  
+time_frame.pack(pady=(10, 0))  # Positioned below the calendar
 
 time_label = ctk.CTkLabel(time_frame, text="Kell: ")
 time_label.pack(side="left")
 
-time_entry = ctk.CTkEntry(time_frame, width=60)  
-time_entry.pack(side="left", padx=(0, 10))  
+time_entry = ctk.CTkEntry(time_frame, width=60)  # Increased width significantly
+time_entry.pack(side="left", padx=(0, 10))  # Add padding to the right
 
+# Set the entry box to be empty
+time_entry.delete(0, ctk.END)  # Make sure it is empty
 
-time_entry.delete(0, ctk.END)  
+# Textbox setup (further reduced size)
+text_box = scrolledtext.ScrolledText(right_frame, width=70, height=10, wrap='word')  # Reduced size again
+text_box.pack(expand= True, fill="both", padx=90, pady=20)  # Positioned at the bottom
 
-
-text_box = scrolledtext.ScrolledText(right_frame, width=70, height=10, wrap='word')  
-text_box.pack(expand= True, fill="both", padx=90, pady=20)
-
-
+# Buttons
 button_frame = ctk.CTkFrame(right_frame)
 button_frame.pack(fill="x", padx=20, pady=(0, 10))
 
@@ -200,23 +201,23 @@ confirm.pack(fill="x", padx=10, pady=5)
 save_ = ctk.CTkButton(button_frame, text='Salvesta', command=lambda: save())
 save_.pack(fill="x", padx=10, pady=5)
 
-
+# Highlight date
 def set_event():
     date_gotten = cal.selection_get()
     time_gotten = time_entry.get()
     discord_name = discord_entry.get()
     
-    
+    # Format the date to dd-mm-yyyy
     formatted_date = date_gotten.strftime("%d/%m/%Y")
     
     if time_gotten:
-        text_box.insert(ctk.END, f'\n{discord_name} {formatted_date} {time_gotten} - ')
+        text_box.insert(ctk.END, f'\n{discord_name} {formatted_date} {time_gotten}')
         cal.calevent_create(date_gotten, 'reminder2', 'reminder')
         cal.tag_config('reminder', background='red', foreground='yellow')
     else:
         text_box.insert(ctk.END, f'\n{discord_name} {formatted_date} - ')
 
-
+# Save text
 def save():
     t = text_box.get(0.0, ctk.END)
     
@@ -274,6 +275,9 @@ def save():
     
     
     
+    #mdea miks see filei salvestab aga ma ei muuda siit midagi, Rando
+    with open('fail.txt', 'a') as to_save:
+        to_save.write(t)
     
     text_box.delete(1.0, ctk.END)
 
@@ -282,6 +286,4 @@ root.title("Weekly")
 root.after(0, check)
 
 root.mainloop()
-
-
 
