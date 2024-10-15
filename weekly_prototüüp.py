@@ -121,39 +121,39 @@ except PermissionError:
 except Exception as e:
     print(f"An error occurred: {e}")
 
-# Setup appearance
+
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
 
-# Window setup
-root = ctk.CTk()
-root.title("Weekly")  # Changed title to "Weekly"
-root.geometry("900x700")  # Adjusted window size
 
-# Main frame for layout
+root = ctk.CTk()
+root.title("Weekly")  
+root.geometry("900x700")  
+
+
 main_frame = ctk.CTkFrame(root)
 main_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
-# Left frame for Discord name entry and mode switch
+
 left_frame = ctk.CTkFrame(main_frame)
 left_frame.pack(side="left", fill="y", padx=(0, 10))
 
-# Discord name label and entry
+
 discord_label = ctk.CTkLabel(left_frame, text="Discord ID:")
 discord_label.pack(padx=10, pady=(10, 0))
 
-discord_entry = ctk.CTkEntry(left_frame, width=100)  # Increased width significantly
+discord_entry = ctk.CTkEntry(left_frame, width=100)
 discord_entry.pack(padx=10, pady=(0, 10), expand=True)
 
-# Mode switch
+
 mode_switch = ctk.CTkSwitch(left_frame, text="Light Mode", command=lambda: ctk.set_appearance_mode("Light" if ctk.get_appearance_mode() == "Dark" else "Dark"))
 mode_switch.pack(pady=(10, 10))
 
-# Right frame for calendar and other components
+
 right_frame = ctk.CTkFrame(main_frame)
 right_frame.pack(side="right", fill="both", expand=True)
 
-# Calendar setup
+
 today = datetime.date.today()
 mindate = datetime.date(year=2000, month=1, day=1)
 maxdate = today + datetime.timedelta(days=365)
@@ -170,27 +170,27 @@ cal = Calendar(right_frame,
                 year=int(time.strftime('%Y')),
                 month=int(time.strftime('%m')),
                 day=int(time.strftime('%d')),
-                width=30, height= 30)  # Set a specific width
-cal.pack(expand=True, fill="both", padx= 50)  # Added padding
+                width=30, height= 30)  
+cal.pack(expand=True, fill="both", padx= 50)  
 
-# Time entry setup
+
 time_frame = ctk.CTkFrame(right_frame)
-time_frame.pack(pady=(10, 0))  # Positioned below the calendar
+time_frame.pack(pady=(10, 0))  
 
 time_label = ctk.CTkLabel(time_frame, text="Kell: ")
 time_label.pack(side="left")
 
-time_entry = ctk.CTkEntry(time_frame, width=60)  # Increased width significantly
-time_entry.pack(side="left", padx=(0, 10))  # Add padding to the right
+time_entry = ctk.CTkEntry(time_frame, width=60)  
+time_entry.pack(side="left", padx=(0, 10))  
 
-# Set the entry box to be empty
-time_entry.delete(0, ctk.END)  # Make sure it is empty
 
-# Textbox setup (further reduced size)
-text_box = scrolledtext.ScrolledText(right_frame, width=70, height=10, wrap='word')  # Reduced size again
-text_box.pack(expand= True, fill="both", padx=90, pady=20)  # Positioned at the bottom
+time_entry.delete(0, ctk.END)  
 
-# Buttons
+
+text_box = scrolledtext.ScrolledText(right_frame, width=70, height=10, wrap='word')  
+text_box.pack(expand= True, fill="both", padx=90, pady=20)
+
+
 button_frame = ctk.CTkFrame(right_frame)
 button_frame.pack(fill="x", padx=20, pady=(0, 10))
 
@@ -200,13 +200,13 @@ confirm.pack(fill="x", padx=10, pady=5)
 save_ = ctk.CTkButton(button_frame, text='Salvesta', command=lambda: save())
 save_.pack(fill="x", padx=10, pady=5)
 
-# Highlight date
+
 def set_event():
     date_gotten = cal.selection_get()
     time_gotten = time_entry.get()
     discord_name = discord_entry.get()
     
-    # Format the date to dd-mm-yyyy
+    
     formatted_date = date_gotten.strftime("%d/%m/%Y")
     
     if time_gotten:
@@ -216,7 +216,7 @@ def set_event():
     else:
         text_box.insert(ctk.END, f'\n{discord_name} {formatted_date} - ')
 
-# Save text
+
 def save():
     t = text_box.get(0.0, ctk.END)
     
@@ -274,9 +274,6 @@ def save():
     
     
     
-    #mdea miks see filei salvestab aga ma ei muuda siit midagi, Rando
-    with open('fail.txt', 'a') as to_save:
-        to_save.write(t)
     
     text_box.delete(1.0, ctk.END)
 
