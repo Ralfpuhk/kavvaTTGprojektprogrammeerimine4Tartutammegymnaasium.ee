@@ -280,13 +280,7 @@ def save():
     
     text_box.delete(1.0, ctk.END)
 
-# Sets time as window title
-def time_set():
-    root.title(time.strftime('%c'))
-    root.after(1000, time_set)
-
-# Initial time setup
-time_set()
+root.title("Weekly")
 
 root.after(0, check)
 
