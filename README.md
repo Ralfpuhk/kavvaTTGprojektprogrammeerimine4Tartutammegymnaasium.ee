@@ -18,7 +18,7 @@ Kasutajaliides prototüüp: https://magma.com/d/wln7slbyec
 
 
 Prototüübi juhend:
-Moodulid - tkcalendar, customtkinter,  spire.xls, spire, pandas [("pip install openpyxl"), kui openpyxl ei tööta, siis: "pip install pandas --upgrade"?], numpy, discordwebhook, discord, 
+# Moodulid - tkcalendar, customtkinter,  spire.xls, spire, pandas [("pip install openpyxl"), kui openpyxl ei tööta, siis: "pip install pandas --upgrade"?], numpy, discordwebhook, discord, 
 # Meelespea loomiseks pead vajutama kuupäeva peale ning sisestama kellaaja.
 # Kellaaeg tuleb sisestada formaadis HH:MM nt 12:29 voi 01:32
 # Kui kuupäev ja kellaaeg on valitud, vajuta "Loo meelespea", siis kirjuta selle kohale oma sonum ning vajuta "Salvesta".
