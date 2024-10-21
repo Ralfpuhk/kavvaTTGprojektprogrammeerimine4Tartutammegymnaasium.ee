@@ -209,11 +209,11 @@ def set_event():
     formatted_date = date_gotten.strftime("%d/%m/%Y")
     
     if time_gotten:
-        text_box.insert(ctk.END, f'\n{discord_name} {formatted_date} {time_gotten} - ')
+        text_box.insert(ctk.END, f'\n{discord_name} {formatted_date} {time_gotten}')
         cal.calevent_create(date_gotten, 'reminder2', 'reminder')
         cal.tag_config('reminder', background='red', foreground='yellow')
     else:
-        text_box.insert(ctk.END, f'\n{discord_name} {formatted_date} - ')
+        text_box.insert(ctk.END, f'\n{discord_name} {formatted_date}')
 
 
 def save():
