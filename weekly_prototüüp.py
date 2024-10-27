@@ -179,7 +179,7 @@ time_frame.pack(pady=(10, 0))
 time_label = ctk.CTkLabel(time_frame, text="Kell: ")
 time_label.pack(side="left")
 
-time_entry = ctk.CTkEntry(time_frame, width=60)  
+time_entry = ctk.CTkEntry(time_frame, width=50)  
 time_entry.pack(side="left", padx=(0, 10))  
 
 
