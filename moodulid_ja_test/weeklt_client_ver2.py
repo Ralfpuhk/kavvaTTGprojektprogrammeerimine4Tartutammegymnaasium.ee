@@ -311,7 +311,7 @@ def save():
         recieve_xslx(s, ((manydates[0]) + ".xlsx"))
         
         
-        df = pd.read_excel(os.path.join((dir_name_slash + manydates[0])) + ".xlsx", header=None)  # Read without headers to get raw data
+        df = pd.read_excel(os.path.join((dir_name_slash + manydates[0])) + ".xlsx", header=None)
         wb = Workbook()
         wb.LoadFromFile("info/"+ manydates[0] +".xlsx")
         sheet = wb.Worksheets["kalender"]
