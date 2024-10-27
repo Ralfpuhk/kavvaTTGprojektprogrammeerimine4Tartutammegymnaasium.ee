@@ -10,7 +10,7 @@
 # Kasutajaliidese esteetikat peab veel arendama, aga programm teeb praegu oma töö ära.
 
 port = 54123
-IP = "192.168.1.142" # hosti IP
+IP = "127.0.0.1" # hosti IP
 
 import tkinter as tk
 
@@ -50,7 +50,6 @@ def lisa(row, input_kuupaev, input_kell, input_sonum, user, sheet, wb):
         sheet.Range[cell].Text = assignment[column.index(num)]
         
     path = ("info/"+ user +".xlsx")
-    # Save to a .xlsx file
     wb.SaveToFile(path, FileFormat.Version2016)
     return
 
@@ -98,17 +97,17 @@ def recieve_xslx(s, flyname):
                 print("breaking")
                 break
             f.write(data)
-            bytess = len(data)  # Keep track of total bytes received
-            print(bytess)
+            bytess = len(data)
+            #print(bytess)
             if bytess < 1024:
-                s.sendall("confirmation".encode("utf-8"))
+                s.sendall("confirmation".encode("utf-8")) #ma leitsin probleemi :)
                 
     print("received")
 
 def send_xslx(send11, s):
     
     
-    flyfile = os.path.join(dir_name, send11) # leia file ja nimi
+    flyfile = os.path.join(dir_name, send11)
     flyname = os.path.basename(flyfile)  
 
     # Github code :) -> ma eriti ei moista, aga midagi see saadab filei nime pikkuse, et see hiljem suudaks decodeida 
@@ -123,7 +122,7 @@ def send_xslx(send11, s):
                 break
             s.sendall(data)
     print("File sent successfully.")
-    time.sleep(0.5) # igaksjuhuks, et socket katki ei laheks kui funktsiooni liiga palju kasutada jarjest
+    time.sleep(0.5) # igaksjuhuks, et socket katki ei laheks kui funktsiooni liiga palju kasutada jarjest. vist pole vaja, aga las olla
 
 try:
     os.mkdir(dir_name)
@@ -287,7 +286,7 @@ def save():
         print(sonum)
         
         if (manydates[0]) + ".xlsx" in file_list_cck():
-            df = pd.read_excel(os.path.join(dir_name_slash, manydates[0]) + ".xlsx", header=None)  # Read without headers to get raw data
+            df = pd.read_excel(os.path.join(dir_name_slash, manydates[0]) + ".xlsx", header=None)  # pandas loeb excel file, et meil oleks midagi jadaks muuta, kuna python ise ei suuda vist xlsx faili lugeda
             wb = Workbook()
             wb.LoadFromFile("info/"+ manydates[0] +".xlsx")
             sheet = wb.Worksheets["kalender"]
