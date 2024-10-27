@@ -71,15 +71,15 @@ def check():
 
 def recieve_xslx(conn):
 
-    # Receive the length of the file name first (4 bytes)
-    byte_length = conn.recv(4)
-    byte_length_update = int.from_bytes(byte_length, 'big')  # Convert bytes to integer
 
-    flyname_bytes = conn.recv(byte_length_update)  # Read the specified length of bytes for the file name
-    flyname = flyname_bytes.decode('utf-8')  # Decode the filename
-    flypath = os.path.join(dir_name, flyname)  # Create the full file path in the 'info' dir_name
+    byte_length = conn.recv(4) #votab vastu faili nime pikkuse byteides
+    byte_length_update = int.from_bytes(byte_length, 'big')  # muudab numbriks
+
+    flyname_bytes = conn.recv(byte_length_update)  # votab vastu faili ja kasutab selle pikkust selleks?
+    flyname = flyname_bytes.decode('utf-8')
+    flypath = os.path.join(dir_name, flyname)
     print(flypath)
-    # Open a file to write the received data
+
     with open(flypath, 'wb') as f:
         while True:
             data = conn.recv(1024)
@@ -91,20 +91,19 @@ def recieve_xslx(conn):
 
 
 def send_xslx(send11, conn):
-    flyfile = os.path.join(dir_name, send11)  # Full path to the file
+    flyfile = os.path.join(dir_name, send11) 
     print(f"Sending file: {flyfile}")
-    
-    # Open the file in binary read mode
+
     with open(flyfile, 'rb') as file:
         while True:
             data = file.read(1024)
-            if not data:  # Check if there's no more data to read
+            if not data:
                 break
-            conn.sendall(data)  # Send the chunk of data
+            conn.sendall(data) # mdea, miks see ei saada tyhja hulka?????
             print(f"Sent {len(data)} bytes")
     
     print(conn.recv(1024).decode("utf-8"))       
-    conn.sendall(b"EOF")  # Send an empty byte to signal the end of transmission
+    conn.sendall(b"EOF")  # ma olen 6h debuginud seda. annan alla. lic brute force method
     print("File sent successfully.")
 
 def connection():
@@ -154,7 +153,7 @@ def connection():
 dir_name_slash = "info/"
 dir_name = "info"
 port = 54123
-IP = "192.168.1.142" # hosti IP
+IP = "127.0.0.1" # hosti IP
 
 # ///////////////////////////////
 
