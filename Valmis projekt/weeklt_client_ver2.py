@@ -124,7 +124,6 @@ def send_xslx(send11, s):
                 break
             s.sendall(data)
     print("File sent successfully.")
-    time.sleep(0.5) # igaksjuhuks, et socket katki ei laheks kui funktsiooni liiga palju kasutada jarjest. vist pole vaja, aga las olla
 
 try:
     os.mkdir(dir_name)
