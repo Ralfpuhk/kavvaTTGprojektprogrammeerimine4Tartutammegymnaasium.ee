@@ -1,4 +1,6 @@
-# TÖÖTAV PROTOTÜÜP
+# Client
+# Tee eraldi kaust programmi jaoks ning tehtud kaustas pane eraldi kaustadesse Host-programm ja Client-programm.
+# Host-programm peab töötama koguaeg, et sõnum saadetaks
 # Meelespea loomiseks pead vajutama kuupäeva peale ning sisestama kellaaja.
 # Kellaaeg tuleb sisestada formaadis HH:MM nt 12:29 voi 01:32
 # Kui kuupäev ja kellaaeg on valitud, vajuta "Loo meelespea", siis kirjuta selle kohale oma sonum ning vajuta "Salvesta".
@@ -337,5 +339,6 @@ def on_closing():
 root.title("Weekly")
 
 root.mainloop()
+
 
 
