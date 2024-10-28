@@ -275,8 +275,11 @@ def save():
         print(f"An error occurred: {e}")
     
     news_get = str(aeg_entry.get())
+    if news_get != "" and news_get != ".":
+        news_get = time_convert(str(news_get))
+    if news_get == "":
+        news_get = "."
 #     print(news_get)
-    
     s = socket.socket()
 
     t = text_box.get(0.0, ctk.END)
@@ -368,12 +371,6 @@ def save():
         for info in matrix:
             
             if info[0] == ".":
-                
-                if news_get != "" and news_get != ".":
-                    news_get = time_convert(str(news_get))
-                if news_get == "":
-                    news_get = "."
-                
                 row_inital = matrix.index(info) + 1
                 print(row_inital)
                 lisa(row_inital, uusjada[0], uusjada[1], jada[0], manydates[0],sheet, wb)
