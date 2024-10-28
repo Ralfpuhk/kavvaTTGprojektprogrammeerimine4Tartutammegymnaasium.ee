@@ -17,7 +17,24 @@ import numpy as np
 import discordwebhook
 from discordwebhook import Discord
 
+import re
+import httplib2
+import requests 
+from bs4 import BeautifulSoup 
+
 import socket
+
+# ////////////////////////////////
+url = 'https://www.postimees.ee/'
+response = requests.get(url) 
+  
+soup = BeautifulSoup(response.text, 'html.parser') 
+headlines = soup.find('body').find_all('h2')
+
+i = 0
+
+uudis = []
+lingid = []
 
 # ////////////////////////////////
 def on_closing():
@@ -28,6 +45,14 @@ def digdin(message, nimi):
     discord = Discord(url=discordWebhook)#
 
     discord.post(content = ("<@"+(str(nimi[:len(nimi)-5]))+">" + " has set the following notification to go off now: \n" + str(message)))
+
+    for x in list(dict.fromkeys(headlines))[:3]: 
+        uudis.append(x.text.strip())
+        
+    for link in soup.find_all("a", href = re.compile("^https://arvamus.postimees.ee"))[9:12]:
+        lingid.append(link.get("href"))
+        
+    discord.post(content = (lingid[0]))
 
 
 def file_list_cck():
@@ -177,3 +202,4 @@ root.after(0, connection)
 # ///////////////////////////////
 
 root.mainloop()
+
