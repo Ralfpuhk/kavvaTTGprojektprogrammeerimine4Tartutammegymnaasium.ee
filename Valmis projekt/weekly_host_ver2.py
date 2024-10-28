@@ -31,7 +31,7 @@ response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser') 
 headlines = soup.find('body').find_all('h2')
 
-i = 0
+
 
 uudis = []
 lingid = []
