@@ -9,7 +9,6 @@
 # Programm saadab teate minuti jooksul, kuna oleneb programmi avamise ajast -> ei pruugi olla iga minuti alguses.
 # Kuidas saada oma discord ID: 
 # Vajuta discordis all vasakul nupule "User Settings" -> Vajuta "Advanced" -> Käivita "Developer Mode" -> Mine seadetest välja -> All vasakul vajuta oma discordi profiili peale -> Vajuta "Copy User ID"
-# Kasutajaliidese esteetikat peab veel arendama, aga programm teeb praegu oma töö ära.
 
 port = 54123
 IP = "192.168.1.142" # hosti IP
@@ -105,7 +104,7 @@ def recieve_xslx(s, flyname):
             bytess = len(data)
             #print(bytess)
             if bytess < 1024:
-                s.sendall("confirmation".encode("utf-8")) #ma leitsin probleemi :)
+                s.sendall("confirmation".encode("utf-8")) #ma leidsin probleemi :)
                 
     print("received")
 
@@ -157,7 +156,7 @@ discord_entry.pack(padx=10, pady=(0, 10), expand=True)
         
 
 
-mode_switch = ctk.CTkSwitch(left_frame, text="Light Mode", command=lambda: ctk.set_appearance_mode("Light" if ctk.get_appearance_mode() == "Dark" else "Dark"))
+mode_switch = ctk.CTkSwitch(left_frame, text="Light Mode",font= ("Arial", 14), command=lambda: ctk.set_appearance_mode("Light" if ctk.get_appearance_mode() == "Dark" else "Dark"))
 mode_switch.pack(pady=(10, 10))
 
 
@@ -188,7 +187,7 @@ cal.pack(expand=True, fill="both", padx= 50)
 time_frame = ctk.CTkFrame(right_frame)
 time_frame.pack(pady=(10, 0))  
 
-time_label = ctk.CTkLabel(time_frame, text="Kell: ")
+time_label = ctk.CTkLabel(time_frame, text="Kell: ",font= ("Arial", 14))
 time_label.pack(side="left")
 
 time_entry = ctk.CTkEntry(time_frame, width=60)  
@@ -232,10 +231,10 @@ text_box.pack(expand= True, fill="both", padx=90, pady=20)
 button_frame = ctk.CTkFrame(right_frame)
 button_frame.pack(fill="x", padx=20, pady=(0, 10))
 
-confirm = ctk.CTkButton(button_frame, text='Loo meelespea', command=lambda: set_event())
+confirm = ctk.CTkButton(button_frame, text='Loo meelespea',font= ("Arial", 14), command=lambda: set_event())
 confirm.pack(fill="x", padx=10, pady=5)
 
-save_ = ctk.CTkButton(button_frame, text='Salvesta', command=lambda: save())
+save_ = ctk.CTkButton(button_frame, text='Salvesta',font= ("Arial", 14), command=lambda: save())
 save_.pack(fill="x", padx=10, pady=5)
 
 
