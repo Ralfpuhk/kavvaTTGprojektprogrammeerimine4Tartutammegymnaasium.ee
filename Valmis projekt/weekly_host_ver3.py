@@ -104,7 +104,7 @@ def recieve_xslx(conn):
     flyname = flyname_bytes.decode('utf-8')
     flypath = os.path.join(dir_name, flyname)  # tee path
     #print(flypath)
-    # Open a file to write the received data
+
     with open(flypath, 'wb') as f:
         while True:
             data = conn.recv(1024)
@@ -116,20 +116,20 @@ def recieve_xslx(conn):
 
 
 def send_xslx(send11, conn):
-    flyfile = os.path.join(dir_name, send11)  # Full path to the file
+    flyfile = os.path.join(dir_name, send11) 
     print(f"Sending file: {flyfile}")
     
-    # Open the file in binary read mode
+    # votab vastu ja kirjutab faili 1024 baiti haaval
     with open(flyfile, 'rb') as file:
         while True:
             data = file.read(1024)
-            if not data:  # Check if there's no more data to read
+            if not data:  # kontroll ka saab datat
                 break
-            conn.sendall(data)  # Send the chunk of data
+            conn.sendall(data)  # MIKS SEE EI SAADA?
 #             print(f"Sent {len(data)} bytes")
     
     print(conn.recv(1024).decode("utf-8"))       
-    conn.sendall(b"EOF")  # Send an empty byte to signal the end of transmission
+    conn.sendall(b"EOF")  # brute force, ma ei viitsi enam
     print("File sent successfully.")
 
 def connection():
