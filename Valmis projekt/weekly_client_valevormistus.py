@@ -11,7 +11,7 @@
 # Vajuta discordis all vasakul nupule "User Settings" -> Vajuta "Advanced" -> Käivita "Developer Mode" -> Mine seadetest välja -> All vasakul vajuta oma discordi profiili peale -> Vajuta "Copy User ID"
 
 port = 54123
-IP = "192.168.1.142" # hosti IP
+IP = "192.168.56.1" # hosti IP
 # IP = "127.0.0.1"
 import shutil
 
@@ -201,9 +201,9 @@ vale_label.pack_forget()
 # ////////////////////////////////////////
 
 aeg_label = ctk.CTkLabel(time_frame, text="Uudiste aeg:")
-aeg_label.pack(side="left", padx=(0, 5))  # Add some padding to the right of the label
+aeg_label.pack(side="left", padx=(0, 5))  
 
-# Create and pack the entry box
+
 aeg_entry = ctk.CTkEntry(time_frame, width=60)
 aeg_entry.pack(side="left", padx=0, pady=(0, 10))  
 
@@ -286,17 +286,11 @@ def set_event():
     if count1 or count2 > 0:
         vale_label.pack(side = "right", padx=0, pady=(0, 0))
         text_box.delete(1.0, ctk.END)
-        count = 0
+
     else:
         vale_label.pack_forget()
     
     
-        
-    
-
-        
-    if count < 0:
-        vale_label.pack_forget()
     
 def save():
     
