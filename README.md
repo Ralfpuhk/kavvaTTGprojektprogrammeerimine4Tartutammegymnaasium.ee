@@ -35,5 +35,3 @@ Kasutajaliides prototüüp: https://magma.com/d/wln7slbyec
  Kuidas saada oma discord ID: 
  
  Vajuta discordis all vasakul nupule "User Settings" -> Vajuta "Advanced" -> Käivita "Developer Mode" -> Mine seadetest välja -> All vasakul vajuta oma discordi profiili peale -> Vajuta "Copy User ID"
- 
- Kasutajaliidese esteetikat peab veel arendama, aga programm teeb praegu oma töö ära.
