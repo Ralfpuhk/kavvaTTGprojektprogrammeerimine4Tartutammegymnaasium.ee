@@ -179,8 +179,8 @@ def connection():
 dir_name_slash = "info/"
 dir_name = "info"
 port = 54123
-IP = "192.168.1.142" # hosti IP
-# IP = "127.0.0.1"
+#IP = "" # hosti IP
+IP = "127.0.0.1" #muuta see, kui teha valjaspool oma arvutit
 
 # ///////////////////////////////
 
