@@ -66,7 +66,7 @@ def check():
         for info in matrix:  
             
             if info[0] == ((str(day) + "." + str(month) + "." + str(year))):
-                print(info[0])
+                #print(info[0])
                 if info[1] == (str(hour) + ":" + str(minute)):
 #                     print(info[1])
                     #if lll == 1:
@@ -96,14 +96,14 @@ def check():
 
 def recieve_xslx(conn):
 
-    # Receive the length of the file name first (4 bytes)
+    # vota flyfile nime bytide arvu
     byte_length = conn.recv(4)
-    byte_length_update = int.from_bytes(byte_length, 'big')  # Convert bytes to integer
+    byte_length_update = int.from_bytes(byte_length, 'big')  # tee numbriks
 
-    flyname_bytes = conn.recv(byte_length_update)  # Read the specified length of bytes for the file name
-    flyname = flyname_bytes.decode('utf-8')  # Decode the filename
-    flypath = os.path.join(dir_name, flyname)  # Create the full file path in the 'info' dir_name
-    print(flypath)
+    flyname_bytes = conn.recv(byte_length_update)  # loe bytide arvu abil faili nimi
+    flyname = flyname_bytes.decode('utf-8')
+    flypath = os.path.join(dir_name, flyname)  # tee path
+    #print(flypath)
     # Open a file to write the received data
     with open(flypath, 'wb') as f:
         while True:
