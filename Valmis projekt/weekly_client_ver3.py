@@ -11,8 +11,8 @@
 # Vajuta discordis all vasakul nupule "User Settings" -> Vajuta "Advanced" -> Käivita "Developer Mode" -> Mine seadetest välja -> All vasakul vajuta oma discordi profiili peale -> Vajuta "Copy User ID"
 
 port = 54123
-IP = "192.168.1.142" # hosti IP
-# IP = "127.0.0.1"
+# IP = "" # hosti IP
+IP = "127.0.0.1" #muuda see ara, kui tahad valjaspool oma arvutit
 import shutil
 
 import tkinter as tk
