@@ -146,7 +146,7 @@ left_frame = ctk.CTkFrame(main_frame)
 left_frame.pack(side="left", fill="y", padx=(0, 10))
 
 
-discord_label = ctk.CTkLabel(left_frame, text="Discord ID:")
+discord_label = ctk.CTkLabel(left_frame, text="Discord ID:",font= ("Arial", 14))
 discord_label.pack(padx=10, pady=(10, 0))
 
 discord_entry = ctk.CTkEntry(left_frame, width=100)
@@ -200,7 +200,7 @@ vale_label.pack_forget()
 
 # ////////////////////////////////////////
 
-aeg_label = ctk.CTkLabel(time_frame, text="Uudiste aeg:")
+aeg_label = ctk.CTkLabel(time_frame, text="Uudiste aeg:",font= ("Arial", 14))
 aeg_label.pack(side="left", padx=(0, 5))  
 
 
@@ -224,7 +224,7 @@ def toggle_uudised():
 
 time_entry.delete(0, ctk.END)  
 
-uudised_checkbox = ctk.CTkCheckBox(left_frame, text="Viimatised uudised", command = toggle_uudised)
+uudised_checkbox = ctk.CTkCheckBox(left_frame, text="Viimatised uudised",font= ("Arial", 14), command = toggle_uudised)
 uudised_checkbox.pack(padx=10, pady=(0, 10))
 
 
