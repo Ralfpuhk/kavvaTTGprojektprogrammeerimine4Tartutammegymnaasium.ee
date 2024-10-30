@@ -18,7 +18,7 @@ Kasutajaliides prototüüp: https://magma.com/d/wln7slbyec
 
 
 
-# Programmi juhend:
+# Prototüübi juhend:
  Moodulid - tkcalendar, customtkinter,  spire.xls, spire, pandas [("pip install openpyxl"), kui openpyxl ei tööta, siis: "pip install pandas --upgrade"?], numpy, discordwebhook, discord, httplib2, bs4
  
  Meelespea loomiseks pead vajutama kuupäeva peale ning sisestama kellaaja.
@@ -37,7 +37,7 @@ Kasutajaliides prototüüp: https://magma.com/d/wln7slbyec
  
  Vajuta discordis all vasakul nupule "User Settings" -> Vajuta "Advanced" -> Käivita "Developer Mode" -> Mine seadetest välja -> All vasakul vajuta oma discordi profiili peale -> Vajuta "Copy User ID"
  
- # Prototüübi juhend:
+ # Programmi juhend:
  Moodulid - tkcalendar, customtkinter,  spire.xls, spire, pandas [("pip install openpyxl"), kui openpyxl ei tööta, siis: "pip install pandas --upgrade"?], numpy, discordwebhook, discord, httplib2, bs4
 
  "Host" programm peab alati käima, et programm saadaks sõnumeid ning peab vaatama, et "IP" oleks mõlemas programmis sama (IPv4)
