@@ -11,7 +11,7 @@
 # Vajuta discordis all vasakul nupule "User Settings" -> Vajuta "Advanced" -> Käivita "Developer Mode" -> Mine seadetest välja -> All vasakul vajuta oma discordi profiili peale -> Vajuta "Copy User ID"
 #Experimental feature:
 #    Uudiste funktsiooni kasutamiseks, märgi kastike linnuga ja sisesta aeg samas formaadis. 
-#    Iga kord kui seda muuta, siis peab selle lisama muu meeldetuletusega. Samuti peab seda koguaeg uuendama igal uuel meeldetuletusel, kuna vaikimisi kustub see ara.
+#    Iga kord kui seda muuta, siis peab selle lisama muu meeldetuletusega. Samuti peab seda koguaeg uuendama, kui luua uus meeldetuletus, kuna vaikimisi kustub see ara.
 port = 54123
 IP = "127.0.0.1" # hosti IP. vajadusel muuda host programmi "IPv4" IP-ks. Tee seda ka host programmis. 
 #(tootab ainult local networkide peal kuna public server IP maksab raha ja kui leida püsiv server, siis ei peaks seda enam muutma.
