@@ -5,7 +5,7 @@
 # Kellaaeg tuleb sisestada formaadis HH:MM nt 12:29 voi 01:32
 # Kui kuupäev ja kellaaeg on valitud, vajuta "Loo meelespea", siis kirjuta selle kohale oma sonum ning vajuta "Salvesta".
 # Salvestamine appendib Discord ID, kuupäeva, kellaaja ning meelespea ning kohandab andmed ja salvestab .xlsx faili.
-# NB! Programm peab lahti olema, et see sonumi saadaks Discordi. (discordi server, millesse sonum saadetakse: https://discord.gg/qr4RssDH9J)
+# NB! Host programm peab lahti olema, et see sonumi saadaks Discordi. (discordi server, millesse sonum saadetakse: https://discord.gg/qr4RssDH9J)
 # Programm saadab teate minuti jooksul, kuna oleneb programmi avamise ajast -> ei pruugi olla iga minuti alguses.
 # Kuidas saada oma discord ID: 
 # Vajuta discordis all vasakul nupule "User Settings" -> Vajuta "Advanced" -> Käivita "Developer Mode" -> Mine seadetest välja -> All vasakul vajuta oma discordi profiili peale -> Vajuta "Copy User ID"
