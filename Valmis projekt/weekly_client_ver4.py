@@ -11,7 +11,8 @@
 # Vajuta discordis all vasakul nupule "User Settings" -> Vajuta "Advanced" -> Käivita "Developer Mode" -> Mine seadetest välja -> All vasakul vajuta oma discordi profiili peale -> Vajuta "Copy User ID"
 
 port = 54123
-IP = "127.0.0.1" # hosti IP. vajadusel muuda host programmi "IPv4" IP-ks. (tootab ainult local networkide peal kuna public server IP maksab raha)
+IP = "127.0.0.1" # hosti IP. vajadusel muuda host programmi "IPv4" IP-ks. Tee seda ka host programmis. 
+#(tootab ainult local networkide peal kuna public server IP maksab raha)
 
 import shutil
 
