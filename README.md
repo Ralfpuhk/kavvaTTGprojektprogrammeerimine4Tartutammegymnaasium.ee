@@ -29,7 +29,7 @@ Kasutajaliides prototüüp: https://magma.com/d/wln7slbyec
  
  Salvestamine appendib Discord ID, kuupäeva, kellaaja ning meelespea faili, milleks vaikimisi on fail.txt ning kohandab andmed ja salvestab .xlsx faili.
  
- NB! Programm peab lahti olema, et see sonumi saadaks Discordi. (discordi server, millesse sõnum saadetakse: https://discord.gg/qr4RssDH9J)
+(discordi server, millesse sõnum saadetakse: https://discord.gg/qr4RssDH9J)
  
  Programm saadab teate minuti jooksul, kuna oleneb programmi avamise ajast -> ei pruugi olla iga minuti alguses.
  
