@@ -59,4 +59,4 @@ Kasutajaliides prototüüp: https://magma.com/d/wln7slbyec
  Vajuta discordis all vasakul nupule "User Settings" -> Vajuta "Advanced" -> Käivita "Developer Mode" -> Mine seadetest välja -> All vasakul vajuta oma discordi profiili peale -> Vajuta "Copy User ID"
 
 
-# Esitluse link: https://docs.google.com/presentation/d/1MXQZZ2hyl65x2q95LSAfljLQUDDqcKUjDBFytX8m9LI/edit?usp=sharing
+# Esitluse link: https://www.canva.com/design/DAGU8nJnKEk/dPt-wRFWfcIF0tXtv_4IUQ/edit?utm_content=DAGU8nJnKEk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
